@@ -1,5 +1,7 @@
 import React from "react";
+
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpenses/NewExpenses";
 
 //this is an array(data type) that contains objects with the properties that wil be diplayed on the site
 const expenses = [
@@ -31,7 +33,7 @@ const expenses = [
 const App = () => {
   return (
     <div>
-      <h2>Foxy Dexx Expense App</h2>
+      <NewExpense />
       <Expenses items={expenses} />
     </div>
   );
