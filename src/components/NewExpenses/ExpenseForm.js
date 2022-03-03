@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -22,12 +22,12 @@ const ExpenseForm = () => {
   const submitHadler = (event) => {
     event.preventDefault(); // this is a function that prevents the application to reload as soon as the user inputs their data
 
-    const ExpenseData = {
+    const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    console.log(ExpenseData);
+    props.onSaveExpenseData(expenseData);
 
     setEnteredAmount(""); // these sets the input space to be blank as soon data is added and saved
     setEnteredDate("");
