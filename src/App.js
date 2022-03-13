@@ -2,6 +2,7 @@ import React from "react";
 
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpenses";
+import "./index.css";
 
 //this is an array(data type) that contains objects with the properties that wil be diplayed on the site
 const expenses = [
@@ -37,10 +38,16 @@ const addExpenseHandler = (expenses) => {
 };
 const App = () => {
   return (
-    <div>
+    <>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
-    </div>
+      <div>
+        <p className="developer">
+          Developed by{" "}
+          <a href="https://github.com/Azania-Mokhampane"> Azania Mokhampane</a>
+        </p>
+      </div>
+    </>
   );
 };
 
