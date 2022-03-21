@@ -24,18 +24,6 @@ const expenses = [
     amount: 250,
     date: new Date(2022, 2, 28),
   },
-  {
-    id: "p4",
-    title: "Cap",
-    amount: 200,
-    date: new Date(2022, 5, 12),
-  },
-  {
-    id: "p5",
-    title: "Laptop",
-    amount: 5000,
-    date: new Date(2022, 3, 17)
-  }
 ];
 
 const addExpenseHandler = (expenses) => {
@@ -46,8 +34,12 @@ const App = () => {
   return (
     <>
       <NewExpense onAddExpense={addExpenseHandler} />
-      {expenses.map(items => (
-        <Expenses nameOfProduct={items.title} price={items.amount} date={items.date} />
+      {expenses.map((items) => (
+        <Expenses
+          nameOfProduct={items.title}
+          price={items.amount}
+          date={items.date}
+        />
       ))}
       {/* this .map method its more like writing a for loop to loop through an array, without writing all the long code */}
       <div>
