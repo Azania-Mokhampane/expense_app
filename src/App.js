@@ -7,7 +7,7 @@ import "./index.css";
 //this is an array(data type) that contains objects with the properties that wil be diplayed on the site
 const expenses = [
   {
-    id: "p1", // id is our key
+    id: "p1",
     title: "Hoody",
     amount: 500,
     date: new Date(2022, 1, 14),
