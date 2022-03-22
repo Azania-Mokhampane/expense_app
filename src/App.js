@@ -45,7 +45,7 @@ const App = () => {
       {/* this .map method its more like writing a for loop to loop through an array, without writing all the long code */}
       <div>
         <p className="developer">
-          Developed by{" "}
+          Developed by
           <a href="https://github.com/Azania-Mokhampane"> Azania Mokhampane</a>
         </p>
       </div>
