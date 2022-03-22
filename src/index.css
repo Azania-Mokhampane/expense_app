@@ -20,3 +20,10 @@ body {
   text-decoration: none;
   color: white;
 }
+.header {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: whitesmoke;
+}

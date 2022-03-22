@@ -33,6 +33,7 @@ const addExpenseHandler = (expenses) => {
 const App = () => {
   return (
     <>
+      <div className="header">Online Expense Tracker App</div>
       <NewExpense onAddExpense={addExpenseHandler} />
       {expenses.map((items) => (
         <Expenses
