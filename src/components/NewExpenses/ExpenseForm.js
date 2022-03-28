@@ -46,7 +46,7 @@ const ExpenseForm = (props) => {
     setEnteredDate(event.target.value);
   };
 
-  const submitHadler = (event) => {
+  const submitHandler = (event) => {
     // this function will be executed when the form is being submitted, which will make our input values blank again
     event.preventDefault(); // this is a function that prevents the application to reload as soon as the user inputs their data
 
@@ -64,7 +64,7 @@ const ExpenseForm = (props) => {
 
   return (
     <>
-      <form onSubmit={submitHadler}>
+      <form onSubmit={submitHandler}>
         <div className="new-expense__controls">
           <div className="new-expense__control">
             <label>Title</label>
