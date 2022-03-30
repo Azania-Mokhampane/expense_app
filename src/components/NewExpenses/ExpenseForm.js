@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = (props) => {
+const ExpenseForm = ({ onSaveExpenseData }) => {
   //its important to know that you can literally call useSate more than once
   const [enteredAmount, setEnteredAmount] = useState(""); // array destructuring
   const [enteredDate, setEnteredDate] = useState(""); //we can also use a single useState,
@@ -55,7 +55,7 @@ const ExpenseForm = (props) => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    props.onSaveExpenseData(expenseData);
+    onSaveExpenseData(expenseData);// expense data is our argument for the parameter on the New Expense, enteredExpenseData
 
     setEnteredAmount(""); // these sets the input space to be blank as soon data is added and saved
     setEnteredDate("");
@@ -70,7 +70,7 @@ const ExpenseForm = (props) => {
             <label>Title</label>
             <input
               type="text"
-              value={enteredTitle} //adding this value event to listen sets the input to the initialized state
+              value={enteredTitle} //adding this value prop helps us with gather the user input and reinitialise it to an empty string again by changing the state again
               onChange={titleChangeHandler} // the titleChangeHAndler will be executed on change of the input, meaning as sson the user inputs something, the function is invoked
               // we dont write the function with braces because that will invoke it as soon as the app loads,so we just point at it and it will only be executed as soon as there is a change on the input
             />
