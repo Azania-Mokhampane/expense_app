@@ -26,15 +26,11 @@ const expenses = [
   },
 ];
 
-const addExpenseHandler = (expenses) => {
-  console.log("In App.js");
-  console.log(expenses);
-};
 const App = () => {
   return (
     <>
       <div className="header">Online Expense Tracker App</div>
-      <NewExpense onAddExpense={addExpenseHandler} />
+      <NewExpense />
       {expenses.map((items) => (
         <Expenses
           nameOfProduct={items.title}
