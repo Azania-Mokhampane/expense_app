@@ -45,9 +45,7 @@ const App = () => {
     },
   ];
 
-  const addExpenseHandler = (expense) => {
-    console.log("In App Js : ", expense);
-  };
+  const addExpenseHandler = (expense) => {};
   return (
     <>
       <div className="header">Online Expense Tracker App</div>
