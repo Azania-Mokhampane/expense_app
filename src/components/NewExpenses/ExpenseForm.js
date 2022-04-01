@@ -55,7 +55,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    onSaveExpenseData(expenseData);// expense data is our argument for the parameter on the New Expense, enteredExpenseData
+    onSaveExpenseData(expenseData); // expense data is our argument for the parameter on the New Expense, enteredExpenseData
 
     setEnteredAmount(""); // these sets the input space to be blank as soon data is added and saved
     setEnteredDate("");
