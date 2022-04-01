@@ -16,34 +16,9 @@ const Expenses = (props) => {
       <div className="expenses">
         <ExpensesFilter selected={year} onChangeHandler={filterChangeHandler} />
         <ExpenseItem
-          nameOfProduct={props.items[0].title}
-          price={props.items[0].amount}
-          date={props.items[0].date}
-        />
-        <ExpenseItem
-          nameOfProduct={props.items[1].title}
-          price={props.items[1].amount}
-          date={props.items[1].date}
-        />
-        <ExpenseItem
-          nameOfProduct={props.items[2].title}
-          price={props.items[2].amount}
-          date={props.items[2].date}
-        />
-        <ExpenseItem
-          nameOfProduct={props.items[3].title}
-          price={props.items[3].amount}
-          date={props.items[3].date}
-        />
-        <ExpenseItem
-          nameOfProduct={props.items[4].title}
-          price={props.items[4].amount}
-          date={props.items[4].date}
-        />
-        <ExpenseItem
-          nameOfProduct={props.items[5].title}
-          price={props.items[5].amount}
-          date={props.items[5].date}
+          nameOfProduct={props.name}
+          price={props.price}
+          date={props.date}
         />
       </div>
     </>
