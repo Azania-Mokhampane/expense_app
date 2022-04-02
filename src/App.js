@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpenses";
+// import ExpenseFilter from "./components/Expenses/ExpenseFilter";
+
 import "./index.css";
 
 const App = () => {
   //this is an array(data type) that contains objects with the properties that wil be diplayed on the site
-  const expenses = [];
+  const [expenses, setExpenses] = useState([]);
 
   const addExpenseHandler = (expense) => {
-    expenses.push(expense);
-    console.log("Data: ", expenses);
+    const EXPENSES = [...expenses];
+    EXPENSES.push(expense);
+    setExpenses(EXPENSES);
+    // console.log("Data: ", expenses);
   };
   return (
     <>
       <div className="header">Online Expense Tracker App</div>
       <NewExpense onSaveExpense={addExpenseHandler} />
-
+      {/* 
+      <ExpenseFilter /> */}
       {expenses.map((items) => {
         return (
-          <Expenses name={items.title} price={items.amount} date={items.date} />
+          <>
+            <Expenses
+              name={items.title}
+              price={items.amount}
+              date={items.date}
+            />
+          </>
         );
       })}
 
