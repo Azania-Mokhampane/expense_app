@@ -11,6 +11,7 @@ const App = () => {
   const [expenses, setExpenses] = useState([]);
 
   const addExpenseHandler = (expense) => {
+    // this fumction is only invoked when the user clicks the Add Expense button
     const EXPENSES = [...expenses];
     EXPENSES.push(expense);
     setExpenses(EXPENSES);
