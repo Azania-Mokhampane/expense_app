@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpenses";
@@ -6,10 +6,11 @@ import "./index.css";
 
 const App = () => {
   //this is an array(data type) that contains objects with the properties that wil be diplayed on the site
-  const [expenses, setExpenses] = useState([]);
+  const expenses = [];
 
   const addExpenseHandler = (expense) => {
-    setExpenses(expenses.push(expense));
+    expenses.push(expense);
+    console.log("Data: ", expenses);
   };
   return (
     <>
