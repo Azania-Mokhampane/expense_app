@@ -7,11 +7,9 @@ import NewExpense from "./components/NewExpenses/NewExpenses";
 import "./index.css";
 
 const App = () => {
-  //this is an array(data type) that contains objects with the properties that wil be diplayed on the site
   const [expenses, setExpenses] = useState([]);
 
   const addExpenseHandler = (expense) => {
-    // this fumction is only invoked when the user clicks the Add Expense button
     const EXPENSES = [...expenses];
     EXPENSES.push(expense);
     setExpenses(EXPENSES);
