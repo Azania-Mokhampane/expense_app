@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = ({ onSaveExpenseData }) => {
+  //TODO:refactor useState into object
+
   //its important to know that you can literally call useSate more than once
   const [enteredAmount, setEnteredAmount] = useState(""); // array destructuring
   const [enteredDate, setEnteredDate] = useState(""); //we can also use a single useState,
