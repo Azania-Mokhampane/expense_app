@@ -73,6 +73,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
               value={enteredTitle} //adding this value prop helps us with gather the user input and reinitialise it to an empty string again by changing the state again
               onChange={titleChangeHandler} // the titleChangeHAndler will be executed on change of the input, meaning as sson the user inputs something, the function is invoked
               // we dont write the function with braces because that will invoke it as soon as the app loads,so we just point at it and it will only be executed as soon as there is a change on the input
+              required
             />
           </div>
 
@@ -84,6 +85,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
               min="1"
               step="1"
               onChange={amountChangeHandler}
+              required
             />
           </div>
 
@@ -95,6 +97,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
               min="2020-01-01"
               max="2022-12-31"
               onChange={dateChangeHandler}
+              required
             />
           </div>
         </div>
