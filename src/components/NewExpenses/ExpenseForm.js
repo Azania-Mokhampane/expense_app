@@ -5,39 +5,12 @@ import "./ExpenseForm.css";
 const ExpenseForm = ({ onSaveExpenseData }) => {
   //TODO:refactor useState into object
 
-  //its important to know that you can literally call useSate more than once
-  const [enteredAmount, setEnteredAmount] = useState(""); // array destructuring
-  const [enteredDate, setEnteredDate] = useState(""); //we can also use a single useState,
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
   const [enteredTitle, setEnteredTitle] = useState("");
 
-  //################## An alternative for state, using a single state#########################//
-  // const [userInput, setUserInput] = useState({
-  //   enteredAmount: "",
-  //   enteredDate: "",
-  //   enteredTitle: "",
-  // });
-
-  // const titleChangeHandler = (event) => {
-  //   setUserInput((prevState) => {
-  //     return { ...prevState, enteredTitle: event.target.value }; //we use this snapshot if our state update depends on the previous state
-  //   });
-  // };
-
-  // const amountChangeHandler = (event) => {
-  //   setUserInput((prevState) => {
-  //     return { ...prevState, enteredAmount: event.target.value }; //we use this snapshot if our state update depends on the previous state
-  //   });
-  // };
-
-  // const dateChangeHandler = (event) => {
-  //   setUserInput((prevState) => {
-  //     return { ...prevState, enteredDate: event.target.value }; //we use this snapshot if our state update depends on the previous state
-  //   });
-  // };
-  //#######################################################################################//
-
   const amountChangeHandler = (event) => {
-    setEnteredAmount(event.target.value); // here we are fetching the input of the user
+    setEnteredAmount(event.target.value);
   };
 
   const titleChangeHandler = (event) => {
@@ -49,8 +22,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
   };
 
   const submitHandler = (event) => {
-    // this function will be executed when the form is being submitted, which will make our input values blank again
-    event.preventDefault(); // this is a function that prevents the application to reload as soon as the user inputs their data
+    event.preventDefault();
 
     const expenseData = {
       title: enteredTitle,
