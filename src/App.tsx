@@ -20,7 +20,6 @@ const App = () => {
     const EXPENSES = [...expenses];
     EXPENSES.push(expense);
     setExpenses(EXPENSES);
-    // console.log("Data: ", expenses);
   };
   return (
     <>
