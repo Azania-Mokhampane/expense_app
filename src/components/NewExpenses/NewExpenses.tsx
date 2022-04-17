@@ -3,8 +3,8 @@ import React from "react";
 import "./NewExpenses.css";
 import ExpenseForm from "./ExpenseForm";
 
-const NewExpense = ({ onSaveExpense }) => {
-  const saveExpenseDataHandler = (enteredExpenseData) => {
+const NewExpense = ({ onSaveExpense }: any) => {
+  const saveExpenseDataHandler = (enteredExpenseData: any) => {
     //our parameter will carry data from the Expense Form
     const expenseData = {
       ...enteredExpenseData, // the rest operator(...) pull all the information gathered/ it pulls the whole object

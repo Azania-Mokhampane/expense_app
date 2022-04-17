@@ -3,7 +3,7 @@ import React from "react";
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 
-const ExpenseItem = ({ date, name, price }) => {
+const ExpenseItem = ({ date, name, price }: any) => {
   // the other way to use props is wrapping our key within curly braces as parameters or argumemts
   return (
     //we cant wrap react components inside other react components, unless we use the children prop
