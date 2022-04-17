@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { IExpenses } from "./utilis/types";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpenses";
-// import ExpenseFilter from "./components/Expenses/ExpenseFilter";
 
 import "./index.css";
 
@@ -13,7 +12,7 @@ type ExpensesType = {
   id: string;
 };
 
-const App = () => {
+const App = (props: any) => {
   const [expenses, setExpenses] = useState<ExpensesType[]>([]);
 
   const addExpenseHandler = (expense: IExpenses) => {
@@ -25,21 +24,9 @@ const App = () => {
     <>
       <div className="header">Online Expense Tracker App</div>
       <NewExpense onSaveExpense={addExpenseHandler} />
-      {/* 
-      <ExpenseFilter /> */}
-      {expenses.map((items: IExpenses) => {
-        return (
-          <>
-            <Expenses
-              name={items.title}
-              price={items.amount}
-              date={items.date}
-            />
-          </>
-        );
-      })}
 
-      {/* this .map method its more like writing a for loop to loop through an array, without writing all the long code */}
+      <Expenses {...props} expenseData={expenses} />
+
       <div>
         <p className="developer">
           Developed by

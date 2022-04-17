@@ -1,19 +1,31 @@
+import { useState } from "react";
 import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
-
-interface Props {
-  price: string;
-  date: number;
-  name: string;
-}
+import ExpenseFilter from "./ExpenseFilter";
 
 //props is an object that contains all the information we have on our app
 // where ever you are going to use the props, in your component you must include it as a parameter in your function and dont forget the key's
-const Expenses = (props: Props) => {
+const Expenses = (props: any) => {
+  const [filteredYear, setFilteredYear] = useState("2020");
+
+  const filterChangeHandler = (selectedYear: any) => {
+    setFilteredYear(selectedYear);
+  };
   return (
     <>
       <div className="expenses">
-        <ExpenseItem name={props.name} price={props.price} date={props.date} />
+        <ExpenseFilter
+          selected={filteredYear}
+          onChangeHandler={filterChangeHandler}
+        />
+        {props.expenseData.map((items: any) => (
+          <ExpenseItem
+            name={items.title}
+            price={items.amount}
+            date={items.date}
+          />
+        ))}
+        {/* <ExpenseItem name={props.expenseData.title} price={props.pri} date={props.date} /> */}
       </div>
     </>
   );
