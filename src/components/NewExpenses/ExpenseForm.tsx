@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = ({ onSaveExpenseData }: any) => {
+const ExpenseForm = (props: any) => {
   //TODO:refactor useState into object
   const [enteredData, setEnteredData] = useState({
     enteredAmount: "",
@@ -18,7 +18,7 @@ const ExpenseForm = ({ onSaveExpenseData }: any) => {
       amount: enteredData.enteredAmount,
       date: new Date(enteredData.enteredDate),
     };
-    onSaveExpenseData(expenseData); // expense data is our argument for the parameter on the New Expense, enteredExpenseData
+    props.onSaveExpenseData(expenseData); // expense data is our argument for the parameter on the New Expense, enteredExpenseData
 
     setEnteredData({
       ...enteredData,
@@ -83,6 +83,9 @@ const ExpenseForm = ({ onSaveExpenseData }: any) => {
           </div>
         </div>
         <div className="new-expense__actions">
+          <button type="button" onClick={props.onCancel}>
+            Cancel
+          </button>
           <button type="submit">Add Expense</button>
         </div>
       </form>
