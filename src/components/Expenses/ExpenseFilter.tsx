@@ -2,9 +2,10 @@ import React from "react";
 
 import "./ExpenseFilter.css";
 
-const ExpensesFilter = (props) => {
-  const dropdownChangeHandler = (event) =>
+const ExpensesFilter = (props: any) => {
+  const dropdownChangeHandler = (event: any) => {
     props.onChangeHandler(event.target.value);
+  };
 
   return (
     <div className="expenses-filter">
