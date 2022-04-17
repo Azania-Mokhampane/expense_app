@@ -2,38 +2,30 @@ import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = ({ onSaveExpenseData }) => {
+const ExpenseForm = ({ onSaveExpenseData }: any) => {
   //TODO:refactor useState into object
+  const [enteredData, setEnteredData] = useState({
+    enteredAmount: "",
+    enteredDate: "",
+    enteredTitle: "",
+  });
 
-  const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState("");
-  const [enteredTitle, setEnteredTitle] = useState("");
-
-  const amountChangeHandler = (event) => {
-    setEnteredAmount(event.target.value);
-  };
-
-  const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);
-  };
-
-  const dateChangeHandler = (event) => {
-    setEnteredDate(event.target.value);
-  };
-
-  const submitHandler = (event) => {
+  const submitHandler = (event: any) => {
     event.preventDefault();
 
     const expenseData = {
-      title: enteredTitle,
-      amount: enteredAmount,
-      date: new Date(enteredDate),
+      title: enteredData.enteredTitle,
+      amount: enteredData.enteredAmount,
+      date: new Date(enteredData.enteredDate),
     };
     onSaveExpenseData(expenseData); // expense data is our argument for the parameter on the New Expense, enteredExpenseData
 
-    setEnteredAmount(""); // these sets the input space to be blank as soon data is added and saved
-    setEnteredDate("");
-    setEnteredTitle("");
+    setEnteredData({
+      ...enteredData,
+      enteredAmount: "",
+      enteredDate: "",
+      enteredTitle: "",
+    });
   };
 
   return (
@@ -44,8 +36,13 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
             <label>Title</label>
             <input
               type="text"
-              value={enteredTitle} //adding this value prop helps us with gather the user input and reinitialise it to an empty string again by changing the state again
-              onChange={titleChangeHandler} // the titleChangeHAndler will be executed on change of the input, meaning as sson the user inputs something, the function is invoked
+              value={enteredData.enteredTitle} //adding this value prop helps us with gather the user input and reinitialise it to an empty string again by changing the state again
+              onChange={(event) =>
+                setEnteredData({
+                  ...enteredData,
+                  enteredTitle: event.target.value,
+                })
+              } // the titleChangeHAndler will be executed on change of the input, meaning as sson the user inputs something, the function is invoked
               // we dont write the function with braces because that will invoke it as soon as the app loads,so we just point at it and it will only be executed as soon as there is a change on the input
               required
             />
@@ -55,10 +52,15 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
             <label>Amount(R)</label>
             <input
               type="number"
-              value={enteredAmount}
+              value={enteredData.enteredAmount}
               min="1"
               step="1"
-              onChange={amountChangeHandler}
+              onChange={(event) =>
+                setEnteredData({
+                  ...enteredData,
+                  enteredAmount: event.target.value,
+                })
+              }
               required
             />
           </div>
@@ -67,10 +69,15 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
             <label>Date</label>
             <input
               type="date"
-              value={enteredDate}
+              value={enteredData.enteredDate}
               min="2020-01-01"
               max="2022-12-31"
-              onChange={dateChangeHandler}
+              onChange={(event) =>
+                setEnteredData({
+                  ...enteredData,
+                  enteredDate: event.target.value,
+                })
+              }
               required
             />
           </div>
