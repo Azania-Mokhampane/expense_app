@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./ExpenseForm.css";
+import { ExpenseFormStyles } from "./FormStyles";
 
 const ExpenseForm = (props: any) => {
   //TODO:refactor useState into object
@@ -29,7 +29,7 @@ const ExpenseForm = (props: any) => {
   };
 
   return (
-    <>
+    <ExpenseFormStyles>
       <form onSubmit={submitHandler}>
         <div className="new-expense__controls">
           <div className="new-expense__control">
@@ -89,7 +89,7 @@ const ExpenseForm = (props: any) => {
           <button type="submit">Add Expense</button>
         </div>
       </form>
-    </>
+    </ExpenseFormStyles>
   );
 };
 

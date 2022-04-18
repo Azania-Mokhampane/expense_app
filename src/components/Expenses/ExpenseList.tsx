@@ -1,7 +1,7 @@
 import React from "react";
 import ExpenseItem from "./ExpenseItem";
 
-import "./ExpenseList.css";
+import { ExpenseListStyles } from "./ListStyles";
 interface EXPENSEITEM {
   title: string;
   amount: string;
@@ -10,7 +10,7 @@ interface EXPENSEITEM {
 
 const ExpenseList = (props: any) => {
   return (
-    <>
+    <ExpenseListStyles>
       <ul className="expenses-list">
         {props.items.length === 0 ? (
           <h2 className="expenses-list__fallback ">No Expenses Found.</h2>
@@ -24,7 +24,7 @@ const ExpenseList = (props: any) => {
           ))
         )}
       </ul>
-    </>
+    </ExpenseListStyles>
   );
 };
 

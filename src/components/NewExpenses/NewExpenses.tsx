@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./NewExpenses.css";
+import { NewExpenseStyles } from "./NewExpenseStyles";
 import ExpenseForm from "./ExpenseForm";
 
 const NewExpense = ({ onSaveExpense }: any) => {
@@ -23,15 +23,17 @@ const NewExpense = ({ onSaveExpense }: any) => {
   };
 
   return (
-    <div className="new-expense">
-      {!expenseForm && <button onClick={showForm}>Add New Expense</button>}
-      {expenseForm && (
-        <ExpenseForm
-          onCancel={OnCancelHandler}
-          onSaveExpenseData={saveExpenseDataHandler}
-        />
-      )}
-    </div>
+    <NewExpenseStyles>
+      <div className="new-expense">
+        {!expenseForm && <button onClick={showForm}>Add New Expense</button>}
+        {expenseForm && (
+          <ExpenseForm
+            onCancel={OnCancelHandler}
+            onSaveExpenseData={saveExpenseDataHandler}
+          />
+        )}
+      </div>
+    </NewExpenseStyles>
   );
 };
 

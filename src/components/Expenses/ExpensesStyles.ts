@@ -1,0 +1,12 @@
+import styled from "styled-components";
+
+export const ExpenseStyles = styled.div`
+  .expenses {
+    padding: 1rem;
+    background-color: rgb(31, 31, 31);
+    margin: 2rem auto;
+    width: 50rem;
+    border-radius: 12px;
+    max-width: 95%;
+  }
+`;
