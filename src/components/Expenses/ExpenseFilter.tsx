@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./ExpenseFilter.css";
+import { ExpenseFilterStyles } from "./FilterStyles";
 
 const ExpensesFilter = (props: any) => {
   const dropdownChangeHandler = (event: any) => {
@@ -8,17 +8,19 @@ const ExpensesFilter = (props: any) => {
   };
 
   return (
-    <div className="expenses-filter">
-      <div className="expenses-filter__control">
-        <label>Filter by year</label>
-        <select value={props.selected} onChange={dropdownChangeHandler}>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
-          <option value="2019">2019</option>
-        </select>
+    <ExpenseFilterStyles>
+      <div className="expenses-filter">
+        <div className="expenses-filter__control">
+          <label>Filter by year</label>
+          <select value={props.selected} onChange={dropdownChangeHandler}>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+          </select>
+        </div>
       </div>
-    </div>
+    </ExpenseFilterStyles>
   );
 };
 

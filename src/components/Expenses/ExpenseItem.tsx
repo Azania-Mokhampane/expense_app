@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./ExpenseItem.css";
+import { ExpenseItemStyles } from "./ItemStyles";
 import ExpenseDate from "./ExpenseDate";
 
 const ExpenseItem = ({ date, name, price }: any) => {
@@ -8,7 +8,7 @@ const ExpenseItem = ({ date, name, price }: any) => {
   return (
     //we cant wrap react components inside other react components, unless we use the children prop
 
-    <>
+    <ExpenseItemStyles>
       <div className="expense-item">
         {/* className dont work on our custom components, unless we allow them to work in our specific component file */}
         <ExpenseDate date={date} />
@@ -17,7 +17,7 @@ const ExpenseItem = ({ date, name, price }: any) => {
           <div className="expense-item__price">R{price}</div>
         </div>
       </div>
-    </>
+    </ExpenseItemStyles>
   );
 };
 
