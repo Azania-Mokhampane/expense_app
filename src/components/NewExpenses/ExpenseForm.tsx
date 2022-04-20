@@ -15,7 +15,7 @@ const ExpenseForm = (props: any) => {
 
     const expenseData = {
       title: enteredData.enteredTitle,
-      amount: enteredData.enteredAmount,
+      amount: +enteredData.enteredAmount,
       date: new Date(enteredData.enteredDate),
     };
     props.onSaveExpenseData(expenseData); // expense data is our argument for the parameter on the New Expense, enteredExpenseData
