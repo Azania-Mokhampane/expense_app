@@ -6,6 +6,7 @@ interface EXPENSEITEM {
   title: string;
   amount: string;
   date: number;
+  id: string;
 }
 
 const ExpenseList = (props: any) => {
@@ -17,6 +18,7 @@ const ExpenseList = (props: any) => {
         ) : (
           props.items.map((expense: EXPENSEITEM) => (
             <ExpenseItem
+              id={expense.id}
               name={expense.title}
               price={expense.amount}
               date={expense.date}
