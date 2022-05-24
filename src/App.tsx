@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IExpenses } from "./utilis/types";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpenses";
@@ -14,6 +14,19 @@ type ExpensesType = {
 
 const App = (props: any) => {
   const [expenses, setExpenses] = useState<ExpensesType[]>([]);
+
+  //getting the expenses
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("expenses")!);
+    if (items) {
+      setExpenses(items);
+    }
+  }, []);
+
+  //saving the expenses
+  useEffect(() => {
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+  }, [expenses]);
 
   const addExpenseHandler = (expense: IExpenses) => {
     const EXPENSES = [...expenses];
