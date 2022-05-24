@@ -43,7 +43,7 @@ const App = (props: any) => {
       <div>
         <p className="developer">
           Developed by
-          <a href="https://github.com/Azania-Mokhampane"> Azania Mokhampane</a>
+          <a href="https://azaniamokhampane.vercel.app"> Azania Mokhampane</a>
         </p>
       </div>
     </>
