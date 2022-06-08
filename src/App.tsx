@@ -4,6 +4,7 @@ import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpenses";
 
 import "./index.css";
+import Login from "./components/Login/loginpage";
 
 type ExpensesType = {
   title: string;
@@ -14,6 +15,7 @@ type ExpensesType = {
 
 const App = (props: any) => {
   const [expenses, setExpenses] = useState<ExpensesType[]>([]);
+  const [isLoggin, setIsLoggenIn] = useState(false);
 
   //getting the expenses
   useEffect(() => {
@@ -35,17 +37,23 @@ const App = (props: any) => {
   };
   return (
     <>
-      <div className="header">Online Expense Tracker App</div>
-      <NewExpense onSaveExpense={addExpenseHandler} />
+      {!isLoggin && <Login LoggenIn={setIsLoggenIn} />}
 
-      <Expenses {...props} expenseData={expenses} />
-
-      <div>
-        <p className="developer">
-          Developed by
-          <a href="https://azaniamokhampane.vercel.app"> Azania Mokhampane</a>
-        </p>
-      </div>
+      {isLoggin && (
+        <>
+          <div className="header">Online Expense Tracker App</div>
+          <NewExpense onSaveExpense={addExpenseHandler} />
+          <Expenses {...props} expenseData={expenses} />
+          <div>
+            <p className="developer">
+              Developed by
+              <a href="https://azaniamokhampane.vercel.app">
+                Azania Mokhampane
+              </a>
+            </p>
+          </div>
+        </>
+      )}
     </>
   );
 };
