@@ -48,6 +48,7 @@ const App = (props: any) => {
             <p className="developer">
               Developed by
               <a href="https://azaniamokhampane.vercel.app">
+                {" "}
                 Azania Mokhampane
               </a>
             </p>
