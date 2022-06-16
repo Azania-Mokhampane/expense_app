@@ -3,7 +3,7 @@ import { IExpenses } from "./utilis/types";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpenses";
 
-import "./index.css";
+// import "./index.css";
 import Login from "./components/Login/loginpage";
 
 type ExpensesType = {
@@ -41,17 +41,19 @@ const App = (props: any) => {
 
       {isLoggin && (
         <>
-          <div className="header">Online Expense Tracker App</div>
-          <NewExpense onSaveExpense={addExpenseHandler} />
-          <Expenses {...props} expenseData={expenses} />
           <div>
-            <p className="developer">
-              Developed by
-              <a href="https://azaniamokhampane.vercel.app">
-                {" "}
-                Azania Mokhampane
-              </a>
-            </p>
+            <h3>Online Expense Tracker App</h3>
+
+            <NewExpense onSaveExpense={addExpenseHandler} />
+            <Expenses {...props} expenseData={expenses} />
+            <div>
+              <p className="developer text-red-500">
+                Developed by{" "}
+                <a href="https://azaniamokhampane.vercel.app">
+                  Azania Mokhampane
+                </a>
+              </p>
+            </div>
           </div>
         </>
       )}
