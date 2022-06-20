@@ -5,6 +5,8 @@ import NewExpense from "./components/NewExpenses/NewExpenses";
 
 // import "./index.css";
 import Login from "./components/Login/loginpage";
+import NavBar from "./components/NavBar/NavBar";
+import AuthContext from "./store/auth-context";
 
 type ExpensesType = {
   title: string;
@@ -23,6 +25,12 @@ const App = (props: any) => {
     if (items) {
       setExpenses(items);
     }
+
+    const storedInfo = localStorage.getItem("isLoggedin");
+
+    if (storedInfo === "1") {
+      setIsLoggenIn(true);
+    }
   }, []);
 
   //saving the expenses
@@ -38,12 +46,10 @@ const App = (props: any) => {
   return (
     <>
       {!isLoggin && <Login LoggenIn={setIsLoggenIn} />}
-
       {isLoggin && (
         <>
+          <NavBar LogOut={setIsLoggenIn} />
           <div>
-            <h3>Online Expense Tracker App</h3>
-
             <NewExpense onSaveExpense={addExpenseHandler} />
             <Expenses {...props} expenseData={expenses} />
             <div>
