@@ -30,7 +30,7 @@ const Login = (props: ILOGIN) => {
 
   const emailError = emailValidator(userEmail.value);
 
-  const validation = userPassword.length < 5 || userName.length < 5;
+  const validation = !userPassword.length || !userName.length;
 
   const SubmitHandler = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -41,6 +41,7 @@ const Login = (props: ILOGIN) => {
       return;
     }
     props.LoggenIn(true);
+    localStorage.setItem("isLoggedin", "1");
   };
 
   console.log("Check Error ", emailError);
