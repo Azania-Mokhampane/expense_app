@@ -12,8 +12,10 @@ export const Box = styled.div`
     max-width: 1280px;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     height: 100vh;
-    padding-top: 40px;
+    /* padding-top: 40px; */
     padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
   /*Smartphone Screens */
   /* @media (min-width: 640px) {
@@ -29,7 +31,6 @@ export const Box = styled.div`
   /* Laptop Screens */
   @media (min-width: 1024px) {
     .container {
-      padding-top: 128px;
     }
   }
 `;
