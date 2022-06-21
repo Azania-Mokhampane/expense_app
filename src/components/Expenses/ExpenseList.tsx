@@ -16,14 +16,18 @@ const ExpenseList = (props: any) => {
         {props.items.length === 0 ? (
           <h2 className="expenses-list__fallback ">No Expenses Found.</h2>
         ) : (
-          props.items.map((expense: EXPENSEITEM) => (
-            <ExpenseItem
-              id={expense.id}
-              name={expense.title}
-              price={expense.amount}
-              date={expense.date}
-            />
-          ))
+          props.items.map(
+            (expense: EXPENSEITEM, index: React.Key | null | undefined) => (
+              <div key={index}>
+                <ExpenseItem
+                  id={expense.id}
+                  name={expense.title}
+                  price={expense.amount}
+                  date={expense.date}
+                />
+              </div>
+            )
+          )
         )}
       </ul>
     </ExpenseListStyles>

@@ -17,16 +17,23 @@ const Expenses = (props: any) => {
     const setDate = new Date(expense.date);
     return setDate.getFullYear().toString() === filteredYear;
   });
-
+  console.log(selectedYearExpenses);
   return (
     <ExpenseStyles>
       <div className="expenses">
-        <ExpenseFilter
-          selected={filteredYear}
-          onChangeHandler={filterChangeHandler}
-        />
-        <ExpenseChart expenses={selectedYearExpenses} />
-        <ExpenseList items={selectedYearExpenses} />
+        {selectedYearExpenses.length ? (
+          <>
+            <ExpenseFilter
+              selected={filteredYear}
+              onChangeHandler={filterChangeHandler}
+            />
+
+            <ExpenseChart expenses={selectedYearExpenses} />
+            <ExpenseList items={selectedYearExpenses} />
+          </>
+        ) : (
+          <p style={{ color: "white" }}>No Expenses Found My Brada</p>
+        )}
       </div>
     </ExpenseStyles>
   );

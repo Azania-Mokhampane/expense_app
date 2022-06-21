@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { IExpenses } from "./utilis/types";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpenses";
@@ -17,7 +17,9 @@ type ExpensesType = {
 
 const App = (props: any) => {
   const [expenses, setExpenses] = useState<ExpensesType[]>([]);
-  const [isLoggin, setIsLoggenIn] = useState(false);
+  // const [isLoggin, setIsLoggenIn] = useState(false);
+
+  const authctx = useContext(AuthContext);
 
   //getting the expenses
   useEffect(() => {
@@ -29,7 +31,8 @@ const App = (props: any) => {
     const storedInfo = localStorage.getItem("isLoggedin");
 
     if (storedInfo === "1") {
-      setIsLoggenIn(true);
+      // setIsLoggenIn(true);
+      authctx.onLogin();
     }
   }, []);
 
@@ -45,10 +48,10 @@ const App = (props: any) => {
   };
   return (
     <>
-      {!isLoggin && <Login LoggenIn={setIsLoggenIn} />}
-      {isLoggin && (
+      {!authctx.isLoggedIn && <Login />}
+      {authctx.isLoggedIn && (
         <>
-          <NavBar LogOut={setIsLoggenIn} />
+          <NavBar />
           <div>
             <NewExpense onSaveExpense={addExpenseHandler} />
             <Expenses {...props} expenseData={expenses} />

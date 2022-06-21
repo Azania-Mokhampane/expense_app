@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Box } from "./loginstyles";
 
 import {
@@ -9,10 +9,13 @@ import {
   Text,
   ChakraProvider,
 } from "@chakra-ui/react";
+import AuthContext from "../../store/auth-context";
 type ILOGIN = {
   LoggenIn: React.Dispatch<React.SetStateAction<boolean>>;
 };
-const Login = (props: ILOGIN) => {
+const Login = () => {
+  const AuthCtx = useContext(AuthContext);
+
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState({
     value: "",
@@ -40,11 +43,12 @@ const Login = (props: ILOGIN) => {
       setUserEmail({ ...userEmail, error: emailError });
       return;
     }
-    props.LoggenIn(true);
+    // props.LoggenIn(true);
+    AuthCtx.onLogin();
+
     localStorage.setItem("isLoggedin", "1");
   };
 
-  console.log("Check Error ", emailError);
   return (
     <>
       <ChakraProvider>
