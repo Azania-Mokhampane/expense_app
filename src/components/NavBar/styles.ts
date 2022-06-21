@@ -7,7 +7,7 @@ export const Nav = styled.div`
     justify-content: space-between;
     background-color: #a892ee;
     padding: 1rem;
-    margin: 2rem auto;
+    margin: 1rem auto;
     width: 50rem;
     max-width: 95%;
     border-radius: 12px;
@@ -21,7 +21,6 @@ export const Nav = styled.div`
     background-color: #40005d;
     color: white;
     border-radius: 5px;
-    margin-right: 1rem;
   }
   .container div button:hover {
     background-color: #510674;
