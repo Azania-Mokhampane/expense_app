@@ -10,13 +10,13 @@ import {
   ChakraProvider,
 } from "@chakra-ui/react";
 import AuthContext from "../../store/auth-context";
-type ILOGIN = {
-  LoggenIn: React.Dispatch<React.SetStateAction<boolean>>;
-};
+// type ILOGIN = {
+//   LoggenIn: React.Dispatch<React.SetStateAction<boolean>>;
+// };
 const Login = () => {
   const AuthCtx = useContext(AuthContext);
 
-  const [userName, setUserName] = useState("");
+  // const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState({
     value: "",
     error: "",
@@ -33,7 +33,7 @@ const Login = () => {
 
   const emailError = emailValidator(userEmail.value);
 
-  const validation = !userPassword.length || !userName.length;
+  const validation = !userPassword.length || !AuthCtx.userName.length;
 
   const SubmitHandler = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -82,8 +82,8 @@ const Login = () => {
                 <Stack spacing={4}>
                   <Input
                     type={"text"}
-                    value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
+                    value={AuthCtx.userName}
+                    onChange={AuthCtx.nameHandler}
                     placeholder="Firstname"
                     bg={"gray.100"}
                     border={0}
