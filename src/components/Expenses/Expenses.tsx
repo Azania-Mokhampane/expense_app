@@ -1,14 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { ExpenseStyles } from "./ExpensesStyles";
 import ExpenseFilter from "./ExpenseFilter";
 import ExpenseList from "./ExpenseList";
 import ExpenseChart from "./ExpenseChart";
-import AuthContext from "../../store/auth-context";
 
-//props is an object that contains all the information we have on our app
-// where ever you are going to use the props, in your component you must include it as a parameter in your function and dont forget the key's
 const Expenses = (props: any) => {
-  const nameCtx = useContext(AuthContext);
   const [filteredYear, setFilteredYear] = useState("2022");
 
   const filterChangeHandler = (selectedYear: any) => {
