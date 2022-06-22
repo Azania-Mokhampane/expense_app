@@ -17,7 +17,6 @@ type ExpensesType = {
 
 const App = (props: any) => {
   const [expenses, setExpenses] = useState<ExpensesType[]>([]);
-  // const [isLoggin, setIsLoggenIn] = useState(false);
 
   const authctx = useContext(AuthContext);
 
@@ -31,10 +30,9 @@ const App = (props: any) => {
     const storedInfo = localStorage.getItem("isLoggedin");
 
     if (storedInfo === "1") {
-      // setIsLoggenIn(true);
       authctx.onLogin();
     }
-  }, [authctx]);
+  }, []);
 
   //saving the expenses
   useEffect(() => {

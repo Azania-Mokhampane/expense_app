@@ -45,7 +45,7 @@ const Login = () => {
     }
     // props.LoggenIn(true);
     AuthCtx.onLogin();
-
+    // localStorage.setItem("userName", JSON.stringify(AuthCtx.userName));
     localStorage.setItem("isLoggedin", "1");
   };
 

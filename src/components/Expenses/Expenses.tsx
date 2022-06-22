@@ -48,7 +48,7 @@ const Expenses = (props: any) => {
               style={{ width: "50%", paddingBottom: "10px" }}
             />
             <p style={{ color: "white", textAlign: "center" }}>
-              {nameCtx.userName} you have not expenses yet🎉📈.
+              You have not expenses yet🎉📈.
             </p>
           </div>
         )}
