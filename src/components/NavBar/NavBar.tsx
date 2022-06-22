@@ -1,17 +1,17 @@
 import { Nav } from "./styles";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../store/auth-context";
 
 const NavBar = () => {
   const LogOutCtx = useContext(AuthContext);
   // Todo
-  // const [welcomeText, setWlecomeText] = useState(true);
+  const [welcomeText, setWlecomeText] = useState(true);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setWlecomeText(false);
-  //   }, 5000);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setWlecomeText(false);
+    }, 4000);
+  }, []);
 
   return (
     <Nav>
@@ -34,7 +34,12 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* {welcomeText && <div>Azania</div>} */}
+      {welcomeText && LogOutCtx.userName.length ? (
+        <div style={{ display: "block", color: "white" }} className="container">
+          <div>Hello {LogOutCtx.userName}👋,</div>{" "}
+          <div>Welcome to Online Expense Tracker💰</div>
+        </div>
+      ) : null}
     </Nav>
   );
 };
