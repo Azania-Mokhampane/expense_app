@@ -21,6 +21,7 @@ const NavBar = () => {
             type="button"
             onClick={() => {
               localStorage.removeItem("isLoggedin");
+              localStorage.removeItem("userName");
               // props.LogOut(false);
               LogOutCtx.onLogout();
             }}
