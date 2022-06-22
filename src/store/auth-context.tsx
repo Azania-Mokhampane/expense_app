@@ -4,6 +4,8 @@ const AuthContext = createContext({
   isLoggedIn: false,
   onLogin: () => {},
   onLogout: () => {},
+  userName: "",
+  nameHandler: (e: any) => {},
 });
 
 type props = {
@@ -12,6 +14,14 @@ type props = {
 
 export const AuthContextprovider = (props: props) => {
   const [isLoggedIn, setIsLoggenIn] = useState(false);
+
+  const [userName, setUserName] = useState("");
+
+  const UserNameHandler = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setUserName(e.target.value);
+  };
 
   const LoginHandler = () => {
     setIsLoggenIn(true);
@@ -26,6 +36,8 @@ export const AuthContextprovider = (props: props) => {
         isLoggedIn: isLoggedIn,
         onLogin: LoginHandler,
         onLogout: LogoutHandler,
+        userName: userName,
+        nameHandler: UserNameHandler,
       }}
     >
       {props.children}
