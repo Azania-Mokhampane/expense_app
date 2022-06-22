@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState } from "react";
+import React, { createContext, ReactNode, useEffect, useState } from "react";
 
 const AuthContext = createContext({
   isLoggedIn: false,
@@ -16,6 +16,20 @@ export const AuthContextprovider = (props: props) => {
   const [isLoggedIn, setIsLoggenIn] = useState(false);
 
   const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    const Name = JSON.parse(localStorage.getItem("userName")!);
+
+    if (Name) {
+      setUserName(Name);
+    }
+  }, [userName]);
+
+  useEffect(() => {
+    localStorage.setItem("userName", JSON.stringify(userName));
+
+    setUserName(userName);
+  }, [userName]);
 
   const UserNameHandler = (e: {
     target: { value: React.SetStateAction<string> };
