@@ -34,7 +34,7 @@ const App = (props: any) => {
       // setIsLoggenIn(true);
       authctx.onLogin();
     }
-  }, []);
+  }, [authctx]);
 
   //saving the expenses
   useEffect(() => {
