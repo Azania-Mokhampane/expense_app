@@ -2,8 +2,14 @@ import React, { useState } from "react";
 
 import { NewExpenseStyles } from "./NewExpenseStyles";
 import ExpenseForm from "./ExpenseForm";
+import { IExpenses, EnteredDataType } from "../../utilis/types";
 
-const NewExpense = ({ onSaveExpense }: any) => {
+interface PropType {
+  onSaveExpense : (expense: IExpenses) => void
+}
+
+
+const NewExpense = (props : PropType) => {
   const [expenseForm, setExpenseForm] = useState(false);
 
   const showForm = () => {
@@ -12,14 +18,14 @@ const NewExpense = ({ onSaveExpense }: any) => {
   const OnCancelHandler = () => {
     setExpenseForm(false);
   };
-  const saveExpenseDataHandler = (enteredExpenseData: any) => {
+  const saveExpenseDataHandler = (enteredExpenseData: EnteredDataType) => {
     //our parameter will carry data from the Expense Form
     const expenseData = {
       ...enteredExpenseData, // the rest operator(...) pull all the information gathered/ it pulls the whole object
       id: Math.random().toString(), // toString converts our number or integer to a string
     };
     setExpenseForm(false);
-    onSaveExpense(expenseData);
+    props.onSaveExpense(expenseData);
   };
 
   return (

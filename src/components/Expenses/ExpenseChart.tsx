@@ -1,7 +1,12 @@
 import React from "react";
+import { IExpenses } from "../../utilis/types";
 import Chart from "../Chart/Chart";
 
-const ExpenseChart = (props: any) => {
+interface ChartTypes {
+  expenses: IExpenses[]
+}
+
+const ExpenseChart = (props: ChartTypes) => {
   const chartDataPoints = [
     { label: "Jan", value: 0 },
     { label: "Feb", value: 0 },

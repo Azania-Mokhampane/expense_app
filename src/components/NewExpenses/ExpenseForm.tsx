@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { IExpForm } from "../../utilis/types";
 
 import { ExpenseFormStyles } from "./FormStyles";
 
-const ExpenseForm = (props: any) => {
+const ExpenseForm = (props: IExpForm) => {
   //TODO:refactor useState into object
   const [enteredData, setEnteredData] = useState({
     enteredAmount: "",
@@ -10,7 +11,7 @@ const ExpenseForm = (props: any) => {
     enteredTitle: "",
   });
 
-  const submitHandler = (event: any) => {
+  const submitHandler = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
 
     const expenseData = {

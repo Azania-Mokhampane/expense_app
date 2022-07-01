@@ -8,15 +8,10 @@ import Login from "./components/Login/loginpage";
 import NavBar from "./components/NavBar/NavBar";
 import AuthContext from "./store/auth-context";
 
-type ExpensesType = {
-  title: string;
-  amount: string;
-  date: number;
-  id: string;
-};
 
-const App = (props: any) => {
-  const [expenses, setExpenses] = useState<ExpensesType[]>([]);
+
+const App = () => {
+  const [expenses, setExpenses] = useState<IExpenses[]>([]);
 
   const authctx = useContext(AuthContext);
 
@@ -42,6 +37,7 @@ const App = (props: any) => {
   const addExpenseHandler = (expense: IExpenses) => {
     const EXPENSES = [...expenses];
     EXPENSES.push(expense);
+
     setExpenses(EXPENSES);
   };
   return (
@@ -52,7 +48,7 @@ const App = (props: any) => {
           <NavBar />
           <div>
             <NewExpense onSaveExpense={addExpenseHandler} />
-            <Expenses {...props} expenseData={expenses} />
+            <Expenses expenseData={expenses} />
             <div>
               <p className="developer text-red-500">
                 Developed by{" "}
