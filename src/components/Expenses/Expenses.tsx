@@ -3,15 +3,20 @@ import { ExpenseStyles } from "./ExpensesStyles";
 import ExpenseFilter from "./ExpenseFilter";
 import ExpenseList from "./ExpenseList";
 import ExpenseChart from "./ExpenseChart";
+import { IExpenses } from "../../utilis/types";
 
-const Expenses = (props: any) => {
+interface DataType {
+  expenseData : IExpenses[]
+}
+
+const Expenses = (props: DataType) => {
   const [filteredYear, setFilteredYear] = useState("2022");
 
-  const filterChangeHandler = (selectedYear: any) => {
+  const filterChangeHandler = (selectedYear : string) => {
     setFilteredYear(selectedYear);
   };
 
-  const selectedYearExpenses = props.expenseData.filter((expense: any) => {
+  const selectedYearExpenses = props.expenseData.filter((expense) => {
     const setDate = new Date(expense.date);
     return setDate.getFullYear().toString() === filteredYear;
   });
