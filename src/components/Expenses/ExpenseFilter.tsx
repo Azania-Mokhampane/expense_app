@@ -2,8 +2,13 @@ import React from "react";
 
 import { ExpenseFilterStyles } from "./FilterStyles";
 
-const ExpensesFilter = (props: any) => {
-  const dropdownChangeHandler = (event: any) => {
+interface FilterTypes {
+  selected: string;
+  onChangeHandler: (selectedYear: string) => void
+}
+
+const ExpensesFilter = (props: FilterTypes) => {
+  const dropdownChangeHandler = (event: { target: { value: string; }; }) => {
     props.onChangeHandler(event.target.value);
   };
 
@@ -12,6 +17,7 @@ const ExpensesFilter = (props: any) => {
       <div className="expenses-filter">
         <div className="expenses-filter__control">
           <label>Filter by year</label>
+          {/*TODO: Make the date filter dynamic */}
           <select value={props.selected} onChange={dropdownChangeHandler}>
             <option value="2026">2026</option>
             <option value="2025">2025</option>

@@ -1,7 +1,11 @@
 import React from "react";
 import { ExpenseDateStyles } from "./DateStyles";
 
-const ExpenseDate = (props: any) => {
+interface DateTypes {
+  date :Date
+}
+
+const ExpenseDate = (props: DateTypes) => {
   const setDate = new Date(props.date);
   const year = setDate.getFullYear();
   const month = setDate.toLocaleString("en-US", { month: "short" }); //toLocaleString is a javascript code that gives us the date in a readable way and takes two argumeys

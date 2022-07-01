@@ -1,15 +1,15 @@
 import React from "react";
+import { IExpenses } from "../../utilis/types";
 import ExpenseItem from "./ExpenseItem";
 
 import { ExpenseListStyles } from "./ListStyles";
-interface EXPENSEITEM {
-  title: string;
-  amount: string;
-  date: number;
-  id: string;
+
+
+interface ExpListType {
+  items: IExpenses[];
 }
 
-const ExpenseList = (props: any) => {
+const ExpenseList = (props: ExpListType) => {
   return (
     <ExpenseListStyles>
       <ul className="expenses-list">
@@ -17,12 +17,12 @@ const ExpenseList = (props: any) => {
           <h2 className="expenses-list__fallback ">No Expenses Found.</h2>
         ) : (
           props.items.map(
-            (expense: EXPENSEITEM, index: React.Key | null | undefined) => (
+            (expense, index) => (
               <div key={index}>
                 <ExpenseItem
                   id={expense.id}
-                  name={expense.title}
-                  price={expense.amount}
+                  title={expense.title}
+                  amount={expense.amount}
                   date={expense.date}
                 />
               </div>
