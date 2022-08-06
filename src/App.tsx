@@ -8,15 +8,13 @@ import Login from "./components/Login/loginpage";
 import NavBar from "./components/NavBar/NavBar";
 import AuthContext from "./store/auth-context";
 
-
-
 const App = () => {
   const [expenses, setExpenses] = useState<IExpenses[]>([]);
 
   const authctx = useContext(AuthContext);
 
   //getting the expenses
-  useEffect(() => {
+     useEffect(() => {
     const items = JSON.parse(localStorage.getItem("expenses")!);
     if (items) {
       setExpenses(items);
@@ -52,7 +50,7 @@ const App = () => {
             <div>
               <p className="developer text-red-500">
                 Developed by{" "}
-                <a href="https://azaniamokhampane.vercel.app">
+                <a href="https://azaniamokhampane.com">
                   Azania Mokhampane
                 </a>
               </p>
